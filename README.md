@@ -17,9 +17,13 @@ The entire backend is serverless, leveraging AWS Lambda, S3, and DynamoDB for a 
 The application follows a simple, event-driven workflow:
 
 ```
-Gradio UI (Client) → Amazon S3 (Storage) → AWS Lambda (Compute) → AWS Bedrock (AI Model)
-                                                  ↓
-                                           Amazon DynamoDB (Database)
+Gradio UI (Client) 
+      ↓
+Amazon S3 (Storage) 
+      ↓ (Trigger)
+AWS Lambda (Compute) ◄──(Request/Response)──► AWS Bedrock (AI Model)
+      ↓ (Save Data)
+Amazon DynamoDB (Database)
 ```
 
 ## 📸 Screenshots
